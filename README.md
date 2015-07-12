@@ -1,6 +1,6 @@
 # JSCardDealer
 
-CardDealer is a small javascript game cards library that contains utilities for creating cards, decks, shuffling and dealing cards. It is especially suited for creating web-based card games.
+JSCardDealer is a small javascript game cards library that contains utilities for creating cards, decks, shuffling and dealing cards. It is especially suited for creating web-based card games.
 
 ## Loading support
 
@@ -109,6 +109,6 @@ requirejs(['jscarddealer'], function(JSCardDealer){
 * requirejs.html: simple example using require.js
 * poker.html: generate 5 cards and uses third party code to evaluate generated hand
 
-### Unit test: test/index.html (Qunit)
+### Unit test: test/index.html (qUnit)
 
 ### License: LGPLv2
