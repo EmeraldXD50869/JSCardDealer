@@ -78,6 +78,12 @@ var anotherCard = cardDealer.dealCard();
 dealer.getNumberRemainingCards();
 ```
 
+### Get remaining cards in a deck
+
+```javascript
+dealer.getRemainingCards();
+```
+
 ### Getting card value and property
 
 ```javascript
