@@ -19,10 +19,10 @@ var cardVilager  = new JSCardDealer.Card('Villager');
 var cardDrunk    = new JSCardDealer.Card('Drunk');
 var cardSeer     = new JSCardDealer.Card('Seer');
 ...
-var cardHeart1   = new JSCardDealer.Card(1); cardHeart1.setProperty('suite', '♥');
-var cardHeart2   = new JSCardDealer.Card(2); cardHeart2.setProperty('suite', '♥');	 
-var cardDiamond1 = new JSCardDealer.Card(1); cardDiamond1.setProperty('suite', '♦');
-var cardDiamond2 = new JSCardDealer.Card(2); cardDiamond2.setProperty('suite', '♦');
+var cardHeart1   = new JSCardDealer.Card(1); cardHeart1.setProperty('suit', '♥');
+var cardHeart2   = new JSCardDealer.Card(2); cardHeart2.setProperty('suit', '♥');	 
+var cardDiamond1 = new JSCardDealer.Card(1); cardDiamond1.setProperty('suit', '♦');
+var cardDiamond2 = new JSCardDealer.Card(2); cardDiamond2.setProperty('suit', '♦');
 ..
 var cardYellow1    = new JSCardDealer.Card('1'); cardReverse.setProperty('color', 'yellow');
 var cardRed2       = new JSCardDealer.Card('2'); cardReverse.setProperty('color', 'red');
@@ -31,7 +31,6 @@ var cardSkipGreen  = new JSCardDealer.Card('skip'); cardReverse.setProperty('col
 ...
 
 ```
-
 
 
 ### Create deck of cards
