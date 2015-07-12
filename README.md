@@ -103,4 +103,12 @@ requirejs(['jscarddealer'], function(JSCardDealer){
 }
 ```
 
-### License LGPLv2
+## Examples
+
+* simple.html: simple example of basic usage
+* requirejs.html: simple example using require.js
+* poker.html: generate 5 cards and uses third party code to evaluate generated hand
+
+### Unit test: test/index.html (Qunit)
+
+### License: LGPLv2
