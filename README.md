@@ -75,7 +75,7 @@ var anotherCard = cardDealer.dealCard();
 ### Get amount of remaining cards
 
 ```javascript
-dealer.getNumberOfRemainingCards();
+dealer.getAmountOfRemainingCards();
 ```
 
 ### Get remaining cards in a deck

@@ -235,11 +235,11 @@ QUnit.test('Get remaining cards', function(assert) {
 	
 	// deal unshuffled deck of cards
 	var card1 = dealer.dealCard();
-	assert.equal(dealer.getNumberRemainingCards(), 2, 'Get remainging cards (2)');
+	assert.equal(dealer.getAmountOfRemainingCards(), 2, 'Get remainging cards (2)');
 	
 	var card2 = dealer.dealCard();
-	assert.equal(dealer.getNumberRemainingCards(), 1, 'Get remainging cards (1)');
+	assert.equal(dealer.getAmountOfRemainingCards(), 1, 'Get remainging cards (1)');
 	
 	var card3 = dealer.dealCard();
-	assert.equal(dealer.getNumberRemainingCards(), 0, 'Get remainging cards (0)');	
+	assert.equal(dealer.getAmountOfRemainingCards(), 0, 'Get remainging cards (0)');	
 });

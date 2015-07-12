@@ -172,7 +172,7 @@
     /**
      * Get number of remaining card
      */
-    Dealer.prototype.getNumberOfRemainingCards = function() {
+    Dealer.prototype.getAmountOfRemainingCards = function() {
         return this.numberOfCards - this.cardIndex;
     };
 
