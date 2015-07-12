@@ -6,7 +6,6 @@ CardDealer is a small javascript game cards library that contains utilities for 
 
 * Classic loading. Loading through script src, objects accesible through JSCardDealer namespace.
 * AMD/Require.JS
-* Node.js
 
 ## Usage
 
@@ -73,6 +72,12 @@ cardDealer.shuffleCards(5);
 var card = cardDealer.dealCard();
 var anotherCard = cardDealer.dealCard();
 ``` 
+
+### Get amount of remaining cards
+
+```javascript
+dealer.getNumberRemainingCards();
+```
 
 ### Getting card value and property
 
