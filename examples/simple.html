@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JSCardDealer: Simple example</title>
+</head>
+<body>
+	
+</body>
+<script src="../jscarddealer.js"></script>
+<script>
+
+	// create cards
+	var red1Card = new JSCardDealer.Card('R1');
+	var red2Card = new JSCardDealer.Card('R2');
+	var red3Card = new JSCardDealer.Card('R3');
+	var red4Card = new JSCardDealer.Card('R4');
+	var red5Card = new JSCardDealer.Card('R5');
+	var red6Card = new JSCardDealer.Card('R6');
+	var red7Card = new JSCardDealer.Card('R7');
+
+	// create new set 
+	var unoDeck = new JSCardDealer.CardDeck();
+	
+	// add card to set 
+	unoDeck.addCard(red1Card);
+	unoDeck.addCard(red2Card);
+	unoDeck.addCard(red3Card);
+	unoDeck.addCard(red4Card);	
+	unoDeck.addCard(red5Card);	
+	unoDeck.addCard(red6Card);
+	unoDeck.addCard(red7Card);	
+
+	// create new carddealer
+	var cardDealer = new JSCardDealer.Dealer(unoDeck);
+	
+	for(var i = 0; i < 30; i++){
+	
+		cardDealer.newGame();
+		cardDealer.shuffleCards();		
+		
+		var output = '';
+		
+		output += cardDealer.dealCard().getValue() + ', ' ;
+		output += cardDealer.dealCard().getValue() + ', ' ;
+		output += cardDealer.dealCard().getValue() + ', ' ;
+		output += cardDealer.dealCard().getValue() + ', ' ;
+		output += cardDealer.dealCard().getValue() + ', ' ;
+		output += cardDealer.dealCard().getValue() + ', ' ;
+		output += cardDealer.dealCard().getValue() ;
+		
+		console.log(output);
+	}
+
+	
+</script>
+</html>

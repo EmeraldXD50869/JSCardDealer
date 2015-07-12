@@ -1,0 +1,240 @@
+<!DOCsuit html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JSCardDealer: Poker example</title>
+	<style>
+		body{
+			text-align: center;
+			font-size: 30px;
+		}
+		
+		#cardsDrawn{ 
+			margin-top: 30px;
+			margin-bottom: 30px;
+			height: 50px;
+		}
+		
+		#cardsEvaluation{
+			margin-bottom: 30px;
+			height: 50px;
+		}
+		
+		.suit_8, .suit_4{
+			color: red;
+		}
+		
+	</style>
+</head>
+<body>
+	<div id="cardsDrawn"></div>
+	<div id="cardsEvaluation"></div>
+	<input type="button" id="btnDrawCards" value="Draw 5 cards">
+</body>
+<script src="../jscarddealer.js"></script>
+<script>
+	
+	// see http://www.codeproject.com/Articles/569271/A-Poker-hand-analyzer-in-JavaScript-using-bit-math
+	hands=["4 of a Kind", "Straight Flush", "Straight", "Flush", "High Card",
+       "1 Pair", "2 Pair", "Royal Flush", "3 of a Kind", "Full House" ];
+	var A=14, K=13, Q=12, J=11, _ = { "♠":1, "♣":2, "♥":4, "♦":8 };
+	 
+	//Calculates the Rank of a 5 card Poker hand using bit manipulations.
+	function rankPokerHand(cs,ss) {
+	  var v, i, o, s = 1<<cs[0]|1<<cs[1]|1<<cs[2]|1<<cs[3]|1<<cs[4];
+	  for (i=-1, v=o=0; i<5; i++, o=Math.pow(2,cs[i]*4)) {v += o*((v/o&15)+1);}
+	  v = v % 15 - ((s/(s&-s) == 31) || (s == 0x403c) ? 3 : 1);
+	  v -= (ss[0] == (ss[1]|ss[2]|ss[3]|ss[4])) * ((s == 0x7c00) ? -5 : 1);
+	  
+	  return hands[v] + (s == 0x403c?" (Ace low)":"");
+	}
+	
+	/**
+	 * rankPokerHand([10, J, Q, K, A], [ _["♠"], _["♠"], _["♠"], _["♠"], _["♠"] ] ); // Royal Flush
+	 * rankPokerHand([ 4, 5, 6, 7, 8], [ _["♠"], _["♠"], _["♠"], _["♠"], _["♠"] ] ); // Straight Flush
+     **/
+	
+	/**
+	 * Create cards
+	 */
+	 
+	 // hearts
+	 var cardHeart1   = new JSCardDealer.Card(1);  cardHeart1.setProperty('suit', '♥');
+	 var cardHeart2   = new JSCardDealer.Card(2);  cardHeart2.setProperty('suit', '♥');	 
+	 var cardHeart3   = new JSCardDealer.Card(3);  cardHeart3.setProperty('suit', '♥');	 
+	 var cardHeart4   = new JSCardDealer.Card(4);  cardHeart4.setProperty('suit', '♥');
+	 var cardHeart5   = new JSCardDealer.Card(5);  cardHeart5.setProperty('suit', '♥');
+	 var cardHeart6   = new JSCardDealer.Card(6);  cardHeart6.setProperty('suit', '♥');
+	 var cardHeart7   = new JSCardDealer.Card(7);  cardHeart7.setProperty('suit', '♥');
+	 var cardHeart8   = new JSCardDealer.Card(8);  cardHeart8.setProperty('suit', '♥');
+	 var cardHeart9   = new JSCardDealer.Card(9);  cardHeart9.setProperty('suit', '♥');
+	 var cardHeartA   = new JSCardDealer.Card(14); cardHeartA.setProperty('suit', '♥');
+	 var cardHeartK   = new JSCardDealer.Card(13); cardHeartK.setProperty('suit', '♥');
+	 var cardHeartQ   = new JSCardDealer.Card(12); cardHeartQ.setProperty('suit', '♥');
+	 var cardHeartJ   = new JSCardDealer.Card(11); cardHeartJ.setProperty('suit', '♥');
+
+	 // diamonds
+	 var cardDiamond1   = new JSCardDealer.Card(1);  cardDiamond1.setProperty('suit', '♦');
+	 var cardDiamond2   = new JSCardDealer.Card(2);  cardDiamond2.setProperty('suit', '♦');	 
+	 var cardDiamond3   = new JSCardDealer.Card(3);  cardDiamond3.setProperty('suit', '♦');	 
+	 var cardDiamond4   = new JSCardDealer.Card(4);  cardDiamond4.setProperty('suit', '♦');
+	 var cardDiamond5   = new JSCardDealer.Card(5);  cardDiamond5.setProperty('suit', '♦');
+	 var cardDiamond6   = new JSCardDealer.Card(6);  cardDiamond6.setProperty('suit', '♦');
+	 var cardDiamond7   = new JSCardDealer.Card(7);  cardDiamond7.setProperty('suit', '♦');
+	 var cardDiamond8   = new JSCardDealer.Card(8);  cardDiamond8.setProperty('suit', '♦');
+	 var cardDiamond9   = new JSCardDealer.Card(9);  cardDiamond9.setProperty('suit', '♦');
+	 var cardDiamondA   = new JSCardDealer.Card(14); cardDiamondA.setProperty('suit', '♦');
+	 var cardDiamondK   = new JSCardDealer.Card(13); cardDiamondK.setProperty('suit', '♦');
+	 var cardDiamondQ   = new JSCardDealer.Card(12); cardDiamondQ.setProperty('suit', '♦');
+	 var cardDiamondJ   = new JSCardDealer.Card(11); cardDiamondJ.setProperty('suit', '♦');
+
+	 // clubs
+	 var cardClub1   = new JSCardDealer.Card(1);  cardClub1.setProperty('suit', '♣');
+	 var cardClub2   = new JSCardDealer.Card(2);  cardClub2.setProperty('suit', '♣');	 
+	 var cardClub3   = new JSCardDealer.Card(3);  cardClub3.setProperty('suit', '♣');	 
+	 var cardClub4   = new JSCardDealer.Card(4);  cardClub4.setProperty('suit', '♣');
+	 var cardClub5   = new JSCardDealer.Card(5);  cardClub5.setProperty('suit', '♣');
+	 var cardClub6   = new JSCardDealer.Card(6);  cardClub6.setProperty('suit', '♣');
+	 var cardClub7   = new JSCardDealer.Card(7);  cardClub7.setProperty('suit', '♣');
+	 var cardClub8   = new JSCardDealer.Card(8);  cardClub8.setProperty('suit', '♣');
+	 var cardClub9   = new JSCardDealer.Card(9);  cardClub9.setProperty('suit', '♣');
+	 var cardClubA   = new JSCardDealer.Card(14); cardClubA.setProperty('suit', '♣');
+	 var cardClubK   = new JSCardDealer.Card(13); cardClubK.setProperty('suit', '♣');
+	 var cardClubQ   = new JSCardDealer.Card(12); cardClubQ.setProperty('suit', '♣');
+	 var cardClubJ   = new JSCardDealer.Card(11); cardClubJ.setProperty('suit', '♣');
+
+	 // spades
+	 var cardSpade1   = new JSCardDealer.Card(1);  cardSpade1.setProperty('suit', '♠');
+	 var cardSpade2   = new JSCardDealer.Card(2);  cardSpade2.setProperty('suit', '♠');	 
+	 var cardSpade3   = new JSCardDealer.Card(3);  cardSpade3.setProperty('suit', '♠');	 
+	 var cardSpade4   = new JSCardDealer.Card(4);  cardSpade4.setProperty('suit', '♠');
+	 var cardSpade5   = new JSCardDealer.Card(5);  cardSpade5.setProperty('suit', '♠');
+	 var cardSpade6   = new JSCardDealer.Card(6);  cardSpade6.setProperty('suit', '♠');
+	 var cardSpade7   = new JSCardDealer.Card(7);  cardSpade7.setProperty('suit', '♠');
+	 var cardSpade8   = new JSCardDealer.Card(8);  cardSpade8.setProperty('suit', '♠');
+	 var cardSpade9   = new JSCardDealer.Card(9);  cardSpade9.setProperty('suit', '♠');
+	 var cardSpadeA   = new JSCardDealer.Card(14); cardSpadeA.setProperty('suit', '♠');
+	 var cardSpadeK   = new JSCardDealer.Card(13); cardSpadeK.setProperty('suit', '♠');
+	 var cardSpadeQ   = new JSCardDealer.Card(12); cardSpadeQ.setProperty('suit', '♠');
+	 var cardSpadeJ   = new JSCardDealer.Card(11); cardSpadeJ.setProperty('suit', '♠');
+	 
+	/**
+	 * Create deck
+	 */
+	 var cardDeck = new JSCardDealer.CardDeck();
+	 
+	 // add heart cards to deck
+	 cardDeck.addCard(cardHeart1);
+	 cardDeck.addCard(cardHeart2);
+	 cardDeck.addCard(cardHeart3);
+	 cardDeck.addCard(cardHeart4);
+	 cardDeck.addCard(cardHeart5);
+	 cardDeck.addCard(cardHeart6);
+	 cardDeck.addCard(cardHeart7);
+	 cardDeck.addCard(cardHeart8);
+	 cardDeck.addCard(cardHeart9);
+	 cardDeck.addCard(cardHeartA);
+	 cardDeck.addCard(cardHeartK);
+	 cardDeck.addCard(cardHeartQ);
+	 cardDeck.addCard(cardHeartJ);
+	 
+	 // add diamond cards to deck
+	 cardDeck.addCard(cardDiamond1);
+	 cardDeck.addCard(cardDiamond2);
+	 cardDeck.addCard(cardDiamond3);
+	 cardDeck.addCard(cardDiamond4);
+	 cardDeck.addCard(cardDiamond5);
+	 cardDeck.addCard(cardDiamond6);
+	 cardDeck.addCard(cardDiamond7);
+	 cardDeck.addCard(cardDiamond8);
+	 cardDeck.addCard(cardDiamond9);
+	 cardDeck.addCard(cardDiamondA);
+	 cardDeck.addCard(cardDiamondK);
+	 cardDeck.addCard(cardDiamondQ);
+	 cardDeck.addCard(cardDiamondJ);
+
+	 // add clubs cards to deck
+	 cardDeck.addCard(cardClub1);
+	 cardDeck.addCard(cardClub2);
+	 cardDeck.addCard(cardClub3);
+	 cardDeck.addCard(cardClub4);
+	 cardDeck.addCard(cardClub5);
+	 cardDeck.addCard(cardClub6);
+	 cardDeck.addCard(cardClub7);
+	 cardDeck.addCard(cardClub8);
+	 cardDeck.addCard(cardClub9);
+	 cardDeck.addCard(cardClubA);
+	 cardDeck.addCard(cardClubK);
+	 cardDeck.addCard(cardClubQ);
+	 cardDeck.addCard(cardClubJ);
+
+ 	 // add spade cards to deck
+	 cardDeck.addCard(cardSpade1);
+	 cardDeck.addCard(cardSpade2);
+	 cardDeck.addCard(cardSpade3);
+	 cardDeck.addCard(cardSpade4);
+	 cardDeck.addCard(cardSpade5);
+	 cardDeck.addCard(cardSpade6);
+	 cardDeck.addCard(cardSpade7);
+	 cardDeck.addCard(cardSpade8);
+	 cardDeck.addCard(cardSpade9);
+	 cardDeck.addCard(cardSpadeA);
+	 cardDeck.addCard(cardSpadeK);
+	 cardDeck.addCard(cardSpadeQ);
+	 cardDeck.addCard(cardSpadeJ);	  
+
+	/**
+	 * Setup Card dealer and Shuffle the cards
+	 */
+	 var cardDealer = new JSCardDealer.Dealer(cardDeck);
+	 
+	 
+	 /**
+	  * Setup draw method
+	  */
+	 
+	 function Draw5Cards(){  
+		 cardDealer.newGame();
+		 cardDealer.shuffleCards(5);
+		 
+		 var cardValues = [];
+		 var cardsuits = [];
+		 var strCardsDrawn = '';
+		 
+		 // deal 5 cards
+		 for (var i = 0; i<5; i++){
+			 var drawnCard = cardDealer.dealCard();
+			 
+			 // store value and suit
+			 cardValues.push(drawnCard.getValue());
+			 cardsuits.push(_[drawnCard.getProperty('suit')]);
+
+			 // output card value			 
+			 var cardValue = drawnCard.getValue();
+			 if (cardValue == 14) cardValue = 'A';
+			 if (cardValue == 13) cardValue = 'K';
+		 	 if (cardValue == 12) cardValue = 'Q';
+			 if (cardValue == 11) cardValue = 'J';
+			 
+			 strCardsDrawn += '<span class="suit_' + _[drawnCard.getProperty('suit')] +'">' +cardValue + drawnCard.getProperty('suit') + '</span> ';		 
+		 }
+		 
+		 // show cards that have been drawn
+		 var outputCardsDrawn = document.getElementById('cardsDrawn');
+		 outputCardsDrawn.innerHTML = strCardsDrawn;
+		 
+		 // evaluate hand
+		 var outputCardEvaluation = document.getElementById('cardsEvaluation');
+		 outputCardEvaluation.innerHTML = rankPokerHand(cardValues, cardsuits);	 
+	 }
+	 
+	 // setup draw button
+	 var btnDraw = document.getElementById('btnDrawCards');
+	 
+	 // handle click button
+	 btnDraw.onclick =  function(){
+		 Draw5Cards();
+	 };
+	
+</script>
+</html>
