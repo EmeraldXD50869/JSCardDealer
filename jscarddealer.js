@@ -57,13 +57,13 @@
     }
 
     /***************************************
-     * CardDeck
+     * Deck
      ***************************************/
 
     /**
      * Card Deck constructor
      */
-    function CardDeck() {
+    function Deck() {
         // init empty array set
         this.deck = [];
     };
@@ -71,14 +71,14 @@
     /**
      * Add card to set 
      */
-    CardDeck.prototype.addCard = function(card) {
+    Deck.prototype.addCard = function(card) {
         this.deck.push(card);
     };
 
     /**
      * Get cards in set
      */
-    CardDeck.prototype.getCards = function() {
+    Deck.prototype.getCards = function() {
         return this.deck;
     };
 
@@ -184,7 +184,7 @@
     }
 
     JSCardDealer.Dealer = Dealer;
-    JSCardDealer.CardDeck = CardDeck;
+    JSCardDealer.Deck = Deck;
     JSCardDealer.Card = Card;
 
     return JSCardDealer;

@@ -37,7 +37,7 @@ var cardSkipGreen  = new JSCardDealer.Card('skip'); cardReverse.setProperty('col
 
 ```javascript
 // create deck
-var unoDeck = new JSCardDealer.CardDeck();
+var unoDeck = new JSCardDealer.Deck();
 
 // add cards to the deck 
 unoDeck.addCard(cardReverseRed);

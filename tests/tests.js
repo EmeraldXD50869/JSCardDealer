@@ -36,7 +36,7 @@ QUnit.test('Setting and getting card properties', function(assert) {
  * Creating card deck 
  */
 QUnit.test('Create card deck', function(assert) {
-	var cardDeck = new JSCardDealer.CardDeck();
+	var cardDeck = new JSCardDealer.Deck();
 	
 	assert.notEqual(cardDeck, null, 'not null');
 	assert.notEqual(cardDeck, undefined, 'not undefined');   
@@ -111,7 +111,7 @@ QUnit.test('Add cards to car deck', function(assert) {
 	var cardSpadeJ   = new JSCardDealer.Card(11); cardSpadeJ.setProperty('suit', '♠');
 	
 	// Create deck
-	var cardDeck = new JSCardDealer.CardDeck();
+	var cardDeck = new JSCardDealer.Deck();
 	
 	// add heart cards to deck
 	cardDeck.addCard(cardHeart1);
@@ -180,7 +180,7 @@ QUnit.test('Add cards to car deck', function(assert) {
  * Creating card dealer 
  */
 QUnit.test('Create dealer', function(assert) {
-   var cardDeck = new JSCardDealer.CardDeck();
+   var cardDeck = new JSCardDealer.Deck();
    var cardDealer = new JSCardDealer.Dealer(cardDeck);
    
    assert.notEqual(cardDealer, null, 'not null');
@@ -196,7 +196,7 @@ QUnit.test('Dealing cards', function(assert) {
 	var card3 = new JSCardDealer.Card(3);	
 	
 	// create a deck
-	var cardDeck = new JSCardDealer.CardDeck();
+	var cardDeck = new JSCardDealer.Deck();
 	cardDeck.addCard(card1);
 	cardDeck.addCard(card2);
 	cardDeck.addCard(card3);
@@ -225,7 +225,7 @@ QUnit.test('Get remaining cards', function(assert) {
 	var card3 = new JSCardDealer.Card(3);	
 	
 	// create a deck
-	var cardDeck = new JSCardDealer.CardDeck();
+	var cardDeck = new JSCardDealer.Deck();
 	cardDeck.addCard(card1);
 	cardDeck.addCard(card2);
 	cardDeck.addCard(card3);
