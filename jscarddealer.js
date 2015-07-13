@@ -71,7 +71,7 @@
     /**
      * Set cards
      */
-    Deck.prototype.setCards = function(cards){
+    Deck.prototype.assignCards = function(cards){
         this.deck = cards;
     }
 
@@ -94,14 +94,14 @@
      */
     Deck.prototype.combineWith = function(deck){
         this.deck = this.deck.concat(deck.deck);
-    }
+    };
     
     /**
      * Get number of cards in deck
      */
     Deck.prototype.getNumberOfCards = function(){
         return this.deck.length;
-    }
+    };
 
     /***************************************
      * Dealer
@@ -111,12 +111,20 @@
      * Constructor
      */
     function Dealer(cardDeck) {
-
+        if (cardDeck !== undefined){
+            this.assignDeck(cardDeck);
+        }
+    };
+    
+    /**
+     * Assign deck to dealer
+     */
+    Dealer.prototype.assignDeck = function(cardDeck){
         // init internal variables
         this.cardDeck = cardDeck;
         this.workingSet = null;
         this.numberOfCards = cardDeck.deck.length;
-        this.cardIndex = 0;
+        this.cardIndex = 0;        
     };
 
     /**

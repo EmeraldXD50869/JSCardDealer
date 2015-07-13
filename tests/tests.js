@@ -179,6 +179,83 @@ QUnit.test('Add cards to car deck', function(assert) {
 /**
  * Creating card deck 
  */
+QUnit.test('Get number of cards in deck', function(assert) {
+	// create cards
+	var card1 = new JSCardDealer.Card(1);
+	var card2 = new JSCardDealer.Card(2);
+	var card3 = new JSCardDealer.Card(3);
+	var card4 = new JSCardDealer.Card(4);
+	var card5 = new JSCardDealer.Card(5);
+	
+	
+	// create deck and add cards
+	var deck = new JSCardDealer.Deck();
+	deck.addCard(card1);
+	deck.addCard(card2);
+	deck.addCard(card3);
+	deck.addCard(card4);
+	deck.addCard(card5);
+
+	// get number of cards
+	assert.equal(deck.getNumberOfCards(), 5, 'Number of cards in deck');
+});
+
+
+/**
+ * Creating card deck 
+ */
+QUnit.test('Assign array of cards to deck', function(assert) {
+	
+	// create empty array
+	var cards  = [];
+	
+	// create some cards
+	var card1 = new JSCardDealer.Card(1);
+	var card2 = new JSCardDealer.Card(2);
+	var card3 = new JSCardDealer.Card(3);
+	var card4 = new JSCardDealer.Card(4);
+	var card5 = new JSCardDealer.Card(5);
+	
+	// add cards to array
+	cards.push(card1);
+	cards.push(card2);
+	cards.push(card3);
+	cards.push(card4);
+	cards.push(card5);
+	
+	// create deck and add cards
+	var deck = new JSCardDealer.Deck();
+	
+	// assign array of cards to deck
+	deck.assignCards(cards);
+	
+	// get number of cards
+	assert.equal(deck.getNumberOfCards(), 5, 'Number of cards in deck');
+	
+	// create dealer
+	var dealer = new JSCardDealer.Dealer(deck);
+	
+	// deal cards
+	var card = dealer.dealCard();
+	assert.equal(card.getValue(), 1, 'Get dealed card value (1)');
+	
+	card = dealer.dealCard();
+	assert.equal(card.getValue(), 2, 'Get dealed card value (2)');
+	
+	card = dealer.dealCard();
+	assert.equal(card.getValue(), 3, 'Get dealed card value (3)');
+	
+	card = dealer.dealCard();
+	assert.equal(card.getValue(), 4, 'Get dealed card value (4)');
+	
+	card = dealer.dealCard();
+	assert.equal(card.getValue(), 5, 'Get dealed card value (5)');		
+});
+
+
+/**
+ * Creating card deck 
+ */
 QUnit.test('Combine card decks', function(assert) {
 	
 	var card1 = new JSCardDealer.Card(1);
