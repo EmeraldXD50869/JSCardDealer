@@ -46,6 +46,41 @@ unoDeck.addCard(cardRed2);
 ...	
 ```
 
+### Get remaining cards in a deck
+
+```javascript
+deck.getRemainingCards();
+```
+
+
+### Assign array of cards to deck
+
+```javascript
+// create empty array
+var cards  = [];
+
+// create some cards
+var card1 = new JSCardDealer.Card(1);
+var card2 = new JSCardDealer.Card(2);
+var card3 = new JSCardDealer.Card(3);
+var card4 = new JSCardDealer.Card(4);
+var card5 = new JSCardDealer.Card(5);
+
+// add cards to array
+cards.push(card1);
+cards.push(card2);
+cards.push(card3);
+cards.push(card4);
+cards.push(card5);
+
+// create deck and add cards
+var deck = new JSCardDealer.Deck();
+
+// assign array of cards to deck
+deck.assignCards(cards);
+```
+
+
 ### Create a card dealer
 
 ```javascript
@@ -76,12 +111,6 @@ var anotherCard = cardDealer.dealCard();
 
 ```javascript
 dealer.getAmountOfRemainingCards();
-```
-
-### Get remaining cards in a deck
-
-```javascript
-dealer.getRemainingCards();
 ```
 
 ### Getting card value and property
