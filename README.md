@@ -146,6 +146,41 @@ var anotherCard = cardDealer.dealCard();
 dealer.getAmountOfRemainingCards();
 ```
 
+### Asssign (new) decks to card dealer
+
+```javascript
+// pileA
+var card1 = new JSCardDealer.Card(1);
+var card2 = new JSCardDealer.Card(2);	
+var pileA = new JSCardDealer.Deck();
+pileA.addCard(card1);
+pileA.addCard(card2);
+
+// create deck 2
+var card3 = new JSCardDealer.Card(3);
+var card4 = new JSCardDealer.Card(4);	
+var pileB = new JSCardDealer.Deck();
+pileB.addCard(card3);
+pileB.addCard(card4);	
+
+// init card dealer without a deck
+var dealer = new JSCardDealer.Dealer();
+
+// assign pile A
+dealer.assignDeck(pileA);
+
+// deal cards from pile A
+var card  = dealer.dealCard();
+var card2 = dealer.dealCard();
+
+// assign pile B
+dealer.assignDeck(pileB);
+
+// deal cards from pile B
+var card3  = dealer.dealCard();
+var card4 = dealer.dealCard();
+```
+
 ### Loading with require.js (AMD support)
 
 ```javascript
