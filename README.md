@@ -116,6 +116,9 @@ pileA.combineWith(pileB);
 ```javascript
 // create dealer
 var cardDealer = new JSCardDealer.CardDealer(werewolvesDeck);
+
+var cardDealer = new JSCardDealer.CardDealer();
+cardDealer.assignDeck(werewolvesDeck);
 ```
 ### Shuffle the cards
 
