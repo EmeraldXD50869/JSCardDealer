@@ -200,4 +200,4 @@ requirejs(['jscarddealer'], function(JSCardDealer){
 
 ### Unit test: test/index.html (qUnit)
 
-### License: LGPLv2
+### License: LGPLv2.1
