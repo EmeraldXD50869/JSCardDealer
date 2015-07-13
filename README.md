@@ -32,6 +32,14 @@ var cardSkipGreen  = new JSCardDealer.Card('skip'); cardReverse.setProperty('col
 
 ```
 
+### Getting card value and property
+
+```javascript
+card.getValue();
+card.getProperty('color');
+``` 
+
+
 
 ### Create deck of cards
 
@@ -79,7 +87,7 @@ deck.assignCards(cards);
 deck.getRemainingCards();
 ```
 
-### Combine decks
+### Combine decks (for example piles)
 
 ```javascript
 var card1 = new JSCardDealer.Card(1);
@@ -134,14 +142,6 @@ var anotherCard = cardDealer.dealCard();
 ```javascript
 dealer.getAmountOfRemainingCards();
 ```
-
-### Getting card value and property
-
-```javascript
-card.getValue();
-card.getProperty('color');
-``` 
-
 
 ### Loading with require.js (AMD support)
 
