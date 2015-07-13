@@ -149,14 +149,14 @@ dealer.getAmountOfRemainingCards();
 ### Asssign (new) decks to card dealer
 
 ```javascript
-// pileA
+// pile A
 var card1 = new JSCardDealer.Card(1);
 var card2 = new JSCardDealer.Card(2);	
 var pileA = new JSCardDealer.Deck();
 pileA.addCard(card1);
 pileA.addCard(card2);
 
-// create deck 2
+// pile B
 var card3 = new JSCardDealer.Card(3);
 var card4 = new JSCardDealer.Card(4);	
 var pileB = new JSCardDealer.Deck();
