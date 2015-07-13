@@ -46,13 +46,6 @@ unoDeck.addCard(cardRed2);
 ...	
 ```
 
-### Get remaining cards in a deck
-
-```javascript
-deck.getRemainingCards();
-```
-
-
 ### Assign array of cards to deck
 
 ```javascript
@@ -80,6 +73,35 @@ var deck = new JSCardDealer.Deck();
 deck.assignCards(cards);
 ```
 
+### Get remaining cards in a deck
+
+```javascript
+deck.getRemainingCards();
+```
+
+### Combine decks
+
+```javascript
+var card1 = new JSCardDealer.Card(1);
+var card2 = new JSCardDealer.Card(2);
+var card3 = new JSCardDealer.Card(3);
+var card4 = new JSCardDealer.Card(4);
+var card5 = new JSCardDealer.Card(5);
+
+// create pile A
+var pileA = new JSCardDealer.Deck();
+pileA.addCard(card1);
+pileA.addCard(card2);
+
+// create pile B
+var pileB = new JSCardDealer.Deck();
+pileB.addCard(card3);
+pileB.addCard(card4);
+pileB.addCard(card5);
+
+// combine pile a with pileB
+pileA.combineWith(pileB);   
+```
 
 ### Create a card dealer
 
