@@ -69,6 +69,13 @@
     };
 
     /**
+     * Set cards
+     */
+    Deck.prototype.setCards = function(cards){
+        this.deck = cards;
+    }
+
+    /**
      * Add card to set 
      */
     Deck.prototype.addCard = function(card) {
