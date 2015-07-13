@@ -82,8 +82,22 @@
         return this.deck;
     };
 
+    /**
+     * Combine deck with another deck 
+     */
+    Deck.prototype.combineWith = function(deck){
+        this.deck = this.deck.concat(deck.deck);
+    }
+    
+    /**
+     * Get number of cards in deck
+     */
+    Deck.prototype.getNumberOfCards = function(){
+        return this.deck.length;
+    }
+
     /***************************************
-     * CardDealer
+     * Dealer
      ***************************************/
 
     /**

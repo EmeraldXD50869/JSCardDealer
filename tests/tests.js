@@ -42,9 +42,8 @@ QUnit.test('Create card deck', function(assert) {
 	assert.notEqual(cardDeck, undefined, 'not undefined');   
 });
 
-
 /**
- * Creating card deck 
+ * Add cards to deck 
  */
 QUnit.test('Add cards to car deck', function(assert) {
    
@@ -175,6 +174,36 @@ QUnit.test('Add cards to car deck', function(assert) {
 	
 	assert.equal(cardDeck.getCards().length, 52, 'Get number of cards');
 });
+
+
+/**
+ * Creating card deck 
+ */
+QUnit.test('Combine card decks', function(assert) {
+	
+	var card1 = new JSCardDealer.Card(1);
+	var card2 = new JSCardDealer.Card(2);
+	var card3 = new JSCardDealer.Card(3);
+	var card4 = new JSCardDealer.Card(4);
+	var card5 = new JSCardDealer.Card(5);
+	
+	// create pile A
+	var pileA = new JSCardDealer.Deck();
+	pileA.addCard(card1);
+	pileA.addCard(card2);
+	
+	// create pile B
+	var pileB = new JSCardDealer.Deck();
+	pileB.addCard(card3);
+	pileB.addCard(card4);
+	pileB.addCard(card5);
+	
+	// combine pile a with pileB
+	pileA.combineWith(pileB);   
+	
+	assert.equal(pileA.getNumberOfCards(), 5, 'Combining piles should result in a deck/pile of 5 cards');
+});
+
 
 /**
  * Creating card dealer 
