@@ -42,6 +42,7 @@ QUnit.test('Create card deck', function(assert) {
 	assert.notEqual(cardDeck, undefined, 'not undefined');   
 });
 
+
 /**
  * Add cards to deck 
  */
@@ -292,6 +293,47 @@ QUnit.test('Create dealer', function(assert) {
    assert.notEqual(cardDealer, null, 'not null');
 });
 
+
+/**
+ * Assign decks to card dealer 
+ */
+QUnit.test('Assign deck to card dealer', function(assert) {
+	// create deck 1
+	var card1 = new JSCardDealer.Card(1);
+	var card2 = new JSCardDealer.Card(2);	
+	var deck1 = new JSCardDealer.Deck();
+	deck1.addCard(card1);
+	deck1.addCard(card2);
+	
+	// create deck 2
+	var card3 = new JSCardDealer.Card(3);
+	var card4 = new JSCardDealer.Card(4);	
+	var deck2 = new JSCardDealer.Deck();
+	deck2.addCard(card3);
+	deck2.addCard(card4);	
+	
+	// init card dealer without a deck
+	var dealer = new JSCardDealer.Dealer();
+	
+	// assign deck 1
+	dealer.assignDeck(deck1);
+	
+	// deal cards
+	var card = dealer.dealCard();
+	assert.equal(card.getValue(), 1, 'Deck 1: Card 1 Value');
+	
+	card = dealer.dealCard();
+	assert.equal(card.getValue(), 2, 'Deck 1: Card 2 Value');
+
+	// assign deck 2
+	dealer.assignDeck(deck2);
+	var card = dealer.dealCard();
+	assert.equal(card.getValue(), 3, 'Deck 2: Card 1 Value');
+	
+	card = dealer.dealCard();
+	assert.equal(card.getValue(), 4, 'Deck 2: Card 2 Value');	
+});
+
 /**
  * Dealer dealing ards 
  */
@@ -311,14 +353,14 @@ QUnit.test('Dealing cards', function(assert) {
 	var dealer = new JSCardDealer.Dealer(cardDeck);
 	
 	// deal unshuffled deck of cards
-	var card1 = dealer.dealCard();
-	assert.equal(card1.getValue(), 1, 'Card 1 Value');
+	var card = dealer.dealCard();
+	assert.equal(card.getValue(), 1, 'Card 1 Value');
 	
-	var card2 = dealer.dealCard();
-	assert.equal(card2.getValue(), 2, 'Card 2 Value');
+	card = dealer.dealCard();
+	assert.equal(card.getValue(), 2, 'Card 2 Value');
 	
-	var card3 = dealer.dealCard();
-	assert.equal(card3.getValue(), 3, 'Card 3 Value');	
+	card = dealer.dealCard();
+	assert.equal(card.getValue(), 3, 'Card 3 Value');	
 });
 
 /**
