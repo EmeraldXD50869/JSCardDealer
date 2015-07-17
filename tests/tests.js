@@ -238,19 +238,19 @@ QUnit.test('Assign array of cards to deck', function(assert) {
 	
 	// deal cards
 	var card = dealer.dealCard();
-	assert.equal(card.getValue(), 1, 'Get dealed card value (1)');
-	
-	card = dealer.dealCard();
-	assert.equal(card.getValue(), 2, 'Get dealed card value (2)');
-	
-	card = dealer.dealCard();
-	assert.equal(card.getValue(), 3, 'Get dealed card value (3)');
+	assert.equal(card.getValue(), 5, 'Get dealed card value (5)');
 	
 	card = dealer.dealCard();
 	assert.equal(card.getValue(), 4, 'Get dealed card value (4)');
 	
 	card = dealer.dealCard();
-	assert.equal(card.getValue(), 5, 'Get dealed card value (5)');		
+	assert.equal(card.getValue(), 3, 'Get dealed card value (3)');
+	
+	card = dealer.dealCard();
+	assert.equal(card.getValue(), 2, 'Get dealed card value (2)');
+	
+	card = dealer.dealCard();
+	assert.equal(card.getValue(), 1, 'Get dealed card value (1)');		
 });
 
 
@@ -320,18 +320,18 @@ QUnit.test('Assign deck to card dealer', function(assert) {
 	
 	// deal cards
 	var card = dealer.dealCard();
-	assert.equal(card.getValue(), 1, 'Deck 1: Card 1 Value');
+	assert.equal(card.getValue(), 2, 'Deck 1: Card 1 Value');
 	
 	card = dealer.dealCard();
-	assert.equal(card.getValue(), 2, 'Deck 1: Card 2 Value');
+	assert.equal(card.getValue(), 1, 'Deck 1: Card 2 Value');
 
 	// assign deck 2
 	dealer.assignDeck(deck2);
 	var card = dealer.dealCard();
-	assert.equal(card.getValue(), 3, 'Deck 2: Card 1 Value');
+	assert.equal(card.getValue(), 4, 'Deck 2: Card 1 Value');
 	
 	card = dealer.dealCard();
-	assert.equal(card.getValue(), 4, 'Deck 2: Card 2 Value');	
+	assert.equal(card.getValue(), 3, 'Deck 2: Card 2 Value');	
 });
 
 /**
@@ -354,13 +354,13 @@ QUnit.test('Dealing cards', function(assert) {
 	
 	// deal unshuffled deck of cards
 	var card = dealer.dealCard();
-	assert.equal(card.getValue(), 1, 'Card 1 Value');
+	assert.equal(card.getValue(), 3, 'Card 1 Value');
 	
 	card = dealer.dealCard();
 	assert.equal(card.getValue(), 2, 'Card 2 Value');
 	
 	card = dealer.dealCard();
-	assert.equal(card.getValue(), 3, 'Card 3 Value');	
+	assert.equal(card.getValue(), 1, 'Card 3 Value');
 });
 
 /**

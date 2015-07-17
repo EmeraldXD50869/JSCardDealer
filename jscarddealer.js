@@ -187,12 +187,14 @@
         var i = this.cardIndex;
 
         if (this.cardIndex < this.numberOfCards) {
+            // lifo
+            var idx = (this.numberOfCards -1) - this.cardIndex;
+
             // increase cardIndex
             this.cardIndex++;
 
-
             // return selected card
-            return this.workingSet[i];
+            return this.workingSet[idx];
         } else {
             return null;
         }
