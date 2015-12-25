@@ -33,7 +33,7 @@
         // store value
         this.value = value;
         this.property = {};
-    };
+    }
 
     /**
      * Get value
@@ -47,14 +47,14 @@
      */
     Card.prototype.setProperty = function(propertyName, propertyValue) {
         this.property[propertyName] = propertyValue;
-    }
+    };
 
     /**
      * Get card property
      */
     Card.prototype.getProperty = function(propertyName) {
         return this.property[propertyName];
-    }
+    };
 
     /***************************************
      * Deck
@@ -66,17 +66,17 @@
     function Deck() {
         // init empty array set
         this.deck = [];
-    };
+    }
 
     /**
      * Set cards
      */
     Deck.prototype.assignCards = function(cards){
         this.deck = cards;
-    }
+    };
 
     /**
-     * Add card to set 
+     * Add card to set
      */
     Deck.prototype.addCard = function(card) {
         this.deck.push(card);
@@ -90,12 +90,12 @@
     };
 
     /**
-     * Combine deck with another deck 
+     * Combine deck with another deck
      */
     Deck.prototype.combineWith = function(deck){
         this.deck = this.deck.concat(deck.deck);
     };
-    
+
     /**
      * Get number of cards in deck
      */
@@ -114,8 +114,8 @@
         if (cardDeck !== undefined){
             this.assignDeck(cardDeck);
         }
-    };
-    
+    }
+
     /**
      * Assign deck to dealer
      */
@@ -124,7 +124,7 @@
         this.cardDeck = cardDeck;
         this.workingSet = null;
         this.numberOfCards = cardDeck.deck.length;
-        this.cardIndex = 0;        
+        this.cardIndex = 0;
     };
 
     /**
@@ -147,7 +147,7 @@
         if (amount === undefined) amount = 1;
 
         // if workingset is null
-        if (this.workingSet == null) {
+        if (this.workingSet === null) {
             // start new game
             this.newGame();
         }
@@ -177,14 +177,12 @@
      * Deal card
      */
     Dealer.prototype.dealCard = function() {
-        
+
         // if workingset is null
-        if (this.workingSet == null) {
+        if (this.workingSet === null) {
             // start new game
             this.newGame();
         }
-        
-        var i = this.cardIndex;
 
         if (this.cardIndex < this.numberOfCards) {
             // lifo
@@ -212,7 +210,7 @@
      */
     Dealer.prototype.getRemainingCards = function(){
         return this.workingSet;
-    }
+    };
 
     JSCardDealer.Dealer = Dealer;
     JSCardDealer.Deck = Deck;
